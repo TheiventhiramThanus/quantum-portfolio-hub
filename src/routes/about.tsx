@@ -564,10 +564,10 @@ function CertificatesSection({ certificates }: { certificates: Certificate[] }) 
     <section id="certificates" className="mt-16 scroll-mt-24">
       <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
         <h2 className="text-3xl md:text-4xl font-black tracking-tight">
-          Certificates & <span className="text-gradient">Licenses</span>
+          Certificates & <span className="text-gradient">Learning</span>
         </h2>
         <p className="mt-2 text-muted-foreground max-w-2xl">
-          Professional learning achievements, online certifications, and skill-based credentials.
+          Academic achievements, professional learning, and skill-based certificates.
         </p>
       </motion.div>
 
