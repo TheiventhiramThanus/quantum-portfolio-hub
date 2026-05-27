@@ -1,0 +1,1 @@
+ALTER TABLE public.experience ADD COLUMN IF NOT EXISTS duration text;

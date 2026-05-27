@@ -1,0 +1,1 @@
+ALTER TABLE public.achievements ADD COLUMN IF NOT EXISTS logo_url text;
