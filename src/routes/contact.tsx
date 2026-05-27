@@ -58,16 +58,16 @@ function ContactPage() {
     e.preventDefault();
     setStatus("sending");
     setErrorMsg("");
+    const { error } = await supabase.from("messages").insert(form);
+    if (error) {
+      setErrorMsg(error.message);
+      setStatus("error");
+      return;
+    }
+    setStatus("sent");
     const waText = encodeURIComponent(
       `Hi Thanus,\n\n${preset ? `Request: ${preset.label}\n\n` : ""}Name: ${form.name}\nEmail: ${form.email}\nSubject: ${form.subject}\n\n${form.message}`
     );
-    try {
-      const { error } = await supabase.from("messages").insert(form);
-      if (error) throw error;
-    } catch (error) {
-      console.error("[Supabase] message submit failed; opening WhatsApp fallback", error);
-    }
-    setStatus("sent");
     window.open(`https://wa.me/94752920381?text=${waText}`, "_blank", "noreferrer");
     setForm({ name: "", email: "", subject: "", message: "" });
   };
