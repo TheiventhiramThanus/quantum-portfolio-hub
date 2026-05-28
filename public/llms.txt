@@ -1,6 +1,6 @@
-# Thanus Theiventhiram — Portfolio
+﻿# Thanus Theiventhiram - Portfolio
 
-> Personal portfolio of Thanus Theiventhiram, a BEng (Hons) Software Engineering student, AarasTech Co-Founder, Full Stack Developer and UI/UX Designer from Jaffna, Sri Lanka.
+> Personal portfolio of Thanus Theiventhiram, a BEng (Hons) Software Engineering Graduate, AarasTech Co-Founder, Full Stack Developer and UI/UX Designer from Jaffna, Sri Lanka.
 
 ## Pages
 
@@ -11,3 +11,4 @@
 - [Education](/education): BEng (Hons) Software Engineering, HND Distinction and academic timeline.
 - [Experience](/experience): AarasTech Co-Founder, Student Council President, WordPress Developer roles.
 - [Contact](/contact): Email, phone, location and social profiles.
+

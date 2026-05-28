@@ -1,23 +1,24 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Globe, Image as ImageIcon, GraduationCap, FileText } from "lucide-react";
 import { StudentResources } from "@/components/student-resources";
 import { FreeCertificateCourses } from "@/components/free-certificate-courses";
+import { absoluteUrl, OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services | Web Development & Design — Thanus Theiventhiram" },
-      { name: "description", content: "Services by Thanus Theiventhiram — Website development, WordPress, UI/UX design, AI posters, academic project support and CV creation in Jaffna, Sri Lanka." },
-      { property: "og:title", content: "Services — Thanus Theiventhiram" },
+      { title: "Services | Web Development & Design - Thanus Theiventhiram" },
+      { name: "description", content: "Services by Thanus Theiventhiram - Website development, WordPress, UI/UX design, AI posters, academic project support and CV creation in Jaffna, Sri Lanka." },
+      { property: "og:title", content: "Services - Thanus Theiventhiram" },
       { property: "og:description", content: "Web development, WordPress, UI/UX, AI posters, academic support and CV creation." },
-      { property: "og:url", content: "/services" },
-      { property: "og:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
-      { name: "twitter:title", content: "Services — Thanus Theiventhiram" },
+      { property: "og:url", content: absoluteUrl("/services") },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:title", content: "Services - Thanus Theiventhiram" },
       { name: "twitter:description", content: "Web development, WordPress, UI/UX, AI and academic support." },
-      { name: "twitter:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/services" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/services") }],
   }),
   component: ServicesPage,
 });
@@ -71,7 +72,7 @@ const services = [
     icon: GraduationCap,
     title: "College & University Assignment / Project Support",
     description:
-      "Paid academic guidance and project support for college and university students — project ideas, documentation structure, report formatting, presentation content, system planning, and final year project concept development.",
+      "Paid academic guidance and project support for college and university students - project ideas, documentation structure, report formatting, presentation content, system planning, and final year project concept development.",
     includes: [
       "Assignment guidance",
       "Project idea development",
@@ -125,7 +126,7 @@ const services = [
     icon: FileText,
     title: "CV Creation",
     description:
-      "Professional CVs, resumes, LinkedIn profile content, and portfolio summaries for students, interns, developers, designers, and job seekers — clean formatting, strong wording, and recruiter-friendly presentation.",
+      "Professional CVs, resumes, LinkedIn profile content, and portfolio summaries for students, interns, developers, designers, and job seekers - clean formatting, strong wording, and recruiter-friendly presentation.",
     includes: [
       "Student CVs",
       "Internship CVs",
@@ -229,3 +230,4 @@ function ServicesPage() {
     </div>
   );
 }
+

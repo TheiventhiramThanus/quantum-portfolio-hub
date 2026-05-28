@@ -1,9 +1,10 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowRight, Award, Linkedin, Rocket, Crown, Shield, Trophy, ExternalLink, ShieldCheck, BadgeCheck, GraduationCap, FolderOpen, Bot, Laptop, Flag, Cake, User, Globe, Languages, Target, Sparkles } from "lucide-react";
 import { useState, useMemo } from "react";
 import { aboutQuery, achievementsQuery, technologiesQuery, certificatesQuery } from "@/lib/queries";
+import { absoluteUrl, OG_IMAGE } from "@/lib/seo";
 
 import profileHeroImg from "@/assets/profile-hero.png";
 
@@ -11,16 +12,16 @@ export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
       { title: "About Thanus Theiventhiram | Software Engineer & Co-Founder" },
-      { name: "description", content: "Learn about Thanus Theiventhiram — Software Engineering Graduate, AarasTech Co-Founder, Full Stack & UI/UX Developer from Jaffna, Sri Lanka." },
+      { name: "description", content: "Learn about Thanus Theiventhiram - Software Engineering Graduate, AarasTech Co-Founder, Full Stack & UI/UX Developer from Jaffna, Sri Lanka." },
       { property: "og:title", content: "About Thanus Theiventhiram" },
       { property: "og:description", content: "Software Engineering Graduate, AarasTech Co-Founder, Full Stack Developer, UI/UX Designer." },
-      { property: "og:url", content: "/about" },
-      { property: "og:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
+      { property: "og:url", content: absoluteUrl("/about") },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:title", content: "About Thanus Theiventhiram" },
       { name: "twitter:description", content: "Software Engineering Graduate & AarasTech Co-Founder from Jaffna, Sri Lanka." },
-      { name: "twitter:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/about" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/about") }],
   }),
   loader: ({ context }) =>
     Promise.all([
@@ -683,3 +684,4 @@ function CertificateCard({ c, index }: { c: Certificate; index: number }) {
     </motion.article>
   );
 }
+

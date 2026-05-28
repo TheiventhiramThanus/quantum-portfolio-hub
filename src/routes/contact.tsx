@@ -1,10 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Github, Linkedin, Twitter, Instagram, MessageCircle } from "lucide-react";
 import { useEffect, useState } from "react";
 import { contactQuery } from "@/lib/queries";
 import { supabase } from "@/integrations/supabase/client";
+import { absoluteUrl, OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -13,13 +14,13 @@ export const Route = createFileRoute("/contact")({
       { name: "description", content: "Contact Thanus Theiventhiram for Full Stack development, UI/UX design, WordPress, IoT and Game development projects in Jaffna and across Sri Lanka." },
       { property: "og:title", content: "Contact Thanus Theiventhiram" },
       { property: "og:description", content: "Hire a Full Stack Developer & UI/UX Designer from Jaffna, Sri Lanka." },
-      { property: "og:url", content: "/contact" },
-      { property: "og:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
+      { property: "og:url", content: absoluteUrl("/contact") },
+      { property: "og:image", content: OG_IMAGE },
       { name: "twitter:title", content: "Contact Thanus Theiventhiram" },
       { name: "twitter:description", content: "Hire a Full Stack Developer & UI/UX Designer from Sri Lanka." },
-      { name: "twitter:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/contact" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/contact") }],
   }),
   validateSearch: (search: Record<string, unknown>) => ({
     resource: (search.resource as string) || undefined,
@@ -98,7 +99,7 @@ function ContactPage() {
               <div className="text-sm text-muted-foreground">Requesting</div>
               <div className="mt-1 font-semibold text-gradient">{preset.label}</div>
               <p className="mt-2 text-xs text-muted-foreground">
-                Fill the form — on submit it will open WhatsApp to 0752920381 with your details auto-filled.
+                Fill the form - on submit it will open WhatsApp to 0752920381 with your details auto-filled.
               </p>
             </div>
           )}
@@ -191,7 +192,7 @@ function ContactPage() {
             disabled={status === "sending"}
             className="btn-gradient w-full py-3 rounded-lg font-semibold disabled:opacity-60"
           >
-            {status === "sending" ? "Sending…" : status === "sent" ? "Message sent ✓" : "Send message"}
+            {status === "sending" ? "Sending..." : status === "sent" ? "Message sent" : "Send message"}
           </button>
           {status === "error" && <p className="text-sm text-destructive">{errorMsg || "Failed to send."}</p>}
         </form>
@@ -199,3 +200,4 @@ function ContactPage() {
     </div>
   );
 }
+

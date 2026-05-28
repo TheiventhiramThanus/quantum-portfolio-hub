@@ -1,24 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { motion, useScroll, useSpring, useReducedMotion } from "framer-motion";
 import { GraduationCap, Calendar, Clock, Award, BookOpen, School, Building2, Sparkles } from "lucide-react";
 import { useRef } from "react";
 import { educationQuery } from "@/lib/queries";
+import { absoluteUrl, OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/education")({
   head: () => ({
     meta: [
-      { title: "Education | Thanus Theiventhiram — Software Engineering" },
-      { name: "description", content: "Academic background of Thanus Theiventhiram — BEng (Hons) Software Engineering, HND in Computing with Distinction, G.C.E A/L and O/L from Sri Lanka." },
-      { property: "og:title", content: "Education — Thanus Theiventhiram" },
+      { title: "Education | Thanus Theiventhiram - Software Engineering" },
+      { name: "description", content: "Academic background of Thanus Theiventhiram - BEng (Hons) Software Engineering, HND in Computing with Distinction, G.C.E A/L and O/L from Sri Lanka." },
+      { property: "og:title", content: "Education - Thanus Theiventhiram" },
       { property: "og:description", content: "BEng (Hons) Software Engineering, HND Distinction and full academic timeline." },
-      { property: "og:url", content: "/education" },
-      { property: "og:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
-      { name: "twitter:title", content: "Education — Thanus Theiventhiram" },
+      { property: "og:url", content: absoluteUrl("/education") },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:title", content: "Education - Thanus Theiventhiram" },
       { name: "twitter:description", content: "Software Engineering academic timeline." },
-      { name: "twitter:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/education" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/education") }],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(educationQuery),
   component: EducationPage,
@@ -241,3 +242,4 @@ function EducationCard({ edu, alignRight }: { edu: Edu; alignRight: boolean }) {
     </motion.div>
   );
 }
+

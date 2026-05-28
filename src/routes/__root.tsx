@@ -1,4 +1,4 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+﻿import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
@@ -18,6 +18,14 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { PageLoader } from "@/components/page-loader";
 import { ScrollSparks } from "@/components/scroll-sparks";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  OG_IMAGE,
+  SITE_NAME,
+  SITE_URL,
+  TWITTER_HANDLE,
+} from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -81,30 +89,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Thanus Theiventhiram | Full Stack Developer & UI/UX Designer" },
-      { name: "description", content: "Portfolio of Thanus Theiventhiram — BEng (Hons) Software Engineering Graduate, AarasTech Co-Founder, Full Stack Developer & UI/UX Designer from Sri Lanka." },
+      { title: DEFAULT_TITLE },
+      { name: "description", content: DEFAULT_DESCRIPTION },
       { name: "author", content: "Thanus Theiventhiram" },
-      { name: "keywords", content: "Thanus Theiventhiram, Theiventhiram Thanus, Full Stack Developer Jaffna, UI/UX Designer Sri Lanka, WordPress Developer Sri Lanka, Software Engineering Student Portfolio, AarasTech Co-Founder, IoT Developer Sri Lanka, Game Developer Sri Lanka" },
+      { name: "keywords", content: "Thanus Theiventhiram, Theiventhiram Thanus, thanustheiventhiram.tech, Full Stack Developer Jaffna, UI/UX Designer Sri Lanka, WordPress Developer Sri Lanka, Software Engineer Sri Lanka, Software Engineering Graduate, AarasTech Co-Founder, IoT Developer Sri Lanka, Game Developer Sri Lanka" },
       { name: "robots", content: "index, follow, max-image-preview:large" },
+      { name: "theme-color", content: "#0f172a" },
       { property: "og:type", content: "website" },
-      { property: "og:site_name", content: "Thanus Theiventhiram" },
+      { property: "og:site_name", content: SITE_NAME },
       { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@thanus1216" },
-      { name: "twitter:creator", content: "@thanus1216" },
-      { property: "og:title", content: "Thanus Theiventhiram | Full Stack Developer & UI/UX Designer" },
-      { name: "twitter:title", content: "Thanus Theiventhiram | Full Stack Developer & UI/UX Designer" },
-      { property: "og:description", content: "Portfolio of Thanus Theiventhiram — BEng (Hons) Software Engineering Graduate, AarasTech Co-Founder, Full Stack Developer & UI/UX Designer from Sri Lanka." },
-      { name: "twitter:description", content: "Portfolio of Thanus Theiventhiram — BEng (Hons) Software Engineering Graduate, AarasTech Co-Founder, Full Stack Developer & UI/UX Designer from Sri Lanka." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7b1726f0-3370-45ce-a48b-784abe3cd32f/id-preview-02f16d5b--82797ab2-2006-4912-97de-e081757bf83b.lovable.app-1779770666230.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/7b1726f0-3370-45ce-a48b-784abe3cd32f/id-preview-02f16d5b--82797ab2-2006-4912-97de-e081757bf83b.lovable.app-1779770666230.png" },
-      { property: "og:url", content: "https://thanustheiventhiram.online" },
+      { name: "twitter:site", content: TWITTER_HANDLE },
+      { name: "twitter:creator", content: TWITTER_HANDLE },
+      { property: "og:title", content: DEFAULT_TITLE },
+      { name: "twitter:title", content: DEFAULT_TITLE },
+      { property: "og:description", content: DEFAULT_DESCRIPTION },
+      { name: "twitter:description", content: DEFAULT_DESCRIPTION },
+      { property: "og:image", content: OG_IMAGE },
+      { property: "og:image:alt", content: "Thanus Theiventhiram portfolio preview" },
+      { name: "twitter:image", content: OG_IMAGE },
+      { property: "og:url", content: SITE_URL },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://thanustheiventhiram.online",
+        href: SITE_URL,
       },
+      { rel: "sitemap", type: "application/xml", href: `${SITE_URL}/sitemap.xml` },
       {
         rel: "stylesheet",
         href: appCss,
@@ -130,8 +141,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           alternateName: "Theiventhiram Thanus",
           jobTitle: "Full Stack Developer, UI/UX Designer & Software Engineer",
           description: "Completed the Bachelor of Engineering (Hons) in Software Engineering, AarasTech Co-Founder, Full Stack Developer, UI/UX Designer, WordPress Developer, IoT Developer and Game Developer from Jaffna, Sri Lanka.",
-          url: "https://thanustheiventhiram.online",
-          image: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png",
+          url: SITE_URL,
+          image: OG_IMAGE,
           email: "mailto:thanustheiventhiram@gmail.com",
           address: {
             "@type": "PostalAddress",
@@ -154,6 +165,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             "https://x.com/thanus1216",
             "https://www.instagram.com/theiventhiram_thanus/",
           ],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: SITE_NAME,
+          url: SITE_URL,
+          inLanguage: "en",
+          publisher: {
+            "@type": "Person",
+            name: SITE_NAME,
+          },
         }),
       },
     ],
@@ -221,3 +246,4 @@ function RootComponent() {
     </QueryClientProvider>
   );
 }
+

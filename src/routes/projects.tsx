@@ -1,24 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { motion } from "framer-motion";
 import { Github, ExternalLink, Linkedin } from "lucide-react";
 import { useState, useMemo } from "react";
 import { projectsQuery } from "@/lib/queries";
+import { absoluteUrl, OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Projects | Thanus Theiventhiram — Portfolio" },
+      { title: "Projects | Thanus Theiventhiram - Portfolio" },
       { name: "description", content: "Explore 30+ projects by Thanus Theiventhiram across Full Stack development (MERN), IoT, Unity Game Development, UI/UX Design, WordPress and AI." },
-      { property: "og:title", content: "Projects — Thanus Theiventhiram" },
+      { property: "og:title", content: "Projects - Thanus Theiventhiram" },
       { property: "og:description", content: "30+ Full Stack, IoT, Game, UI/UX and WordPress projects." },
-      { property: "og:url", content: "/projects" },
-      { property: "og:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
-      { name: "twitter:title", content: "Projects — Thanus Theiventhiram" },
+      { property: "og:url", content: absoluteUrl("/projects") },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:title", content: "Projects - Thanus Theiventhiram" },
       { name: "twitter:description", content: "Full Stack, IoT, Game, UI/UX and WordPress portfolio." },
-      { name: "twitter:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/projects" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/projects") }],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(projectsQuery),
   component: ProjectsPage,
@@ -93,3 +94,4 @@ function ProjectsPage() {
     </div>
   );
 }
+

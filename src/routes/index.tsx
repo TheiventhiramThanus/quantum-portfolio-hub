@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+﻿import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, type Variants } from "framer-motion";
 import {
   Github, Linkedin, Mail, Twitter, Instagram, Download, ArrowRight,
@@ -6,6 +6,7 @@ import {
 } from "lucide-react";
 import profileImg from "@/assets/profile-hero.png";
 import { lazy, Suspense } from "react";
+import { absoluteUrl, DEFAULT_DESCRIPTION, DEFAULT_TITLE, OG_IMAGE } from "@/lib/seo";
 
 const StudentResources = lazy(() =>
   import("@/components/student-resources").then((m) => ({ default: m.StudentResources }))
@@ -17,18 +18,18 @@ const FreeCertificateCourses = lazy(() =>
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Thanus Theiventhiram | Full Stack Developer & UI/UX Designer" },
-      { name: "description", content: "Portfolio of Thanus Theiventhiram — BEng (Hons) Software Engineering Graduate, AarasTech Co-Founder, Full Stack Developer & UI/UX Designer from Sri Lanka." },
-      { property: "og:title", content: "Thanus Theiventhiram | Full Stack Developer & UI/UX Designer" },
+      { title: DEFAULT_TITLE },
+      { name: "description", content: DEFAULT_DESCRIPTION },
+      { property: "og:title", content: DEFAULT_TITLE },
       { property: "og:description", content: "Software Engineering Graduate, AarasTech Co-Founder, Full Stack, WordPress, IoT and Game Developer from Jaffna, Sri Lanka." },
-      { property: "og:url", content: "/" },
-      { property: "og:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
-      { name: "twitter:title", content: "Thanus Theiventhiram | Full Stack Developer & UI/UX Designer" },
-      { name: "twitter:description", content: "Portfolio of Thanus Theiventhiram — AarasTech Co-Founder, Full Stack, WordPress, IoT & Game Developer." },
-      { name: "twitter:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
+      { property: "og:url", content: absoluteUrl("/") },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:title", content: DEFAULT_TITLE },
+      { name: "twitter:description", content: "Portfolio of Thanus Theiventhiram, AarasTech Co-Founder, Full Stack, WordPress, IoT and Game Developer." },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
     links: [
-      { rel: "canonical", href: "/" },
+      { rel: "canonical", href: absoluteUrl("/") },
       // Preload the LCP hero portrait so it paints earlier
       { rel: "preload", as: "image", href: profileImg, fetchPriority: "high" },
     ],
@@ -74,14 +75,14 @@ const achievementsPreview = [
     id: "president",
     icon: Crown,
     logo: "/logos/esoft-emcj.png",
-    title: "President (February 2025 – April 2026) | Student Council ESOFT UNI - Jaffna",
+    title: "President (February 2025 - April 2026) | Student Council ESOFT UNI - Jaffna",
     desc: "Led the student council, designing engaging visual content and actively supporting initiatives to enhance collaboration and creativity.",
   },
   {
     id: "prefect",
     icon: ShieldCheck,
     logo: "/logos/chc-prefect.png",
-    title: "Prefect (2021 – 2023) | Chavakachcheri Hindu College",
+    title: "Prefect (2021 - 2023) | Chavakachcheri Hindu College",
     desc: "Supported student discipline and organized school events, strengthening leadership and communication skills.",
   },
 ];
@@ -344,3 +345,4 @@ function Index() {
     </div>
   );
 }
+

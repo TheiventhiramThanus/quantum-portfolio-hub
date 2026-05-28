@@ -1,24 +1,25 @@
-import { createFileRoute } from "@tanstack/react-router";
+﻿import { createFileRoute } from "@tanstack/react-router";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { motion, useScroll, useSpring, useReducedMotion } from "framer-motion";
 import { Briefcase, Calendar, Clock, Sparkles, Rocket, Crown, Globe, Megaphone, Palette, Shield } from "lucide-react";
 import { useRef } from "react";
 import { experienceQuery } from "@/lib/queries";
+import { absoluteUrl, OG_IMAGE } from "@/lib/seo";
 
 export const Route = createFileRoute("/experience")({
   head: () => ({
     meta: [
-      { title: "Experience | Thanus Theiventhiram — AarasTech Co-Founder" },
-      { name: "description", content: "Professional experience of Thanus Theiventhiram — AarasTech Co-Founder, Student Council President, WordPress Developer, UI/UX Designer and Social Media Executive." },
-      { property: "og:title", content: "Experience — Thanus Theiventhiram" },
+      { title: "Experience | Thanus Theiventhiram - AarasTech Co-Founder" },
+      { name: "description", content: "Professional experience of Thanus Theiventhiram - AarasTech Co-Founder, Student Council President, WordPress Developer, UI/UX Designer and Social Media Executive." },
+      { property: "og:title", content: "Experience - Thanus Theiventhiram" },
       { property: "og:description", content: "AarasTech Co-Founder, WordPress Developer, UI/UX Designer and more." },
-      { property: "og:url", content: "/experience" },
-      { property: "og:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
-      { name: "twitter:title", content: "Experience — Thanus Theiventhiram" },
+      { property: "og:url", content: absoluteUrl("/experience") },
+      { property: "og:image", content: OG_IMAGE },
+      { name: "twitter:title", content: "Experience - Thanus Theiventhiram" },
       { name: "twitter:description", content: "Professional experience timeline." },
-      { name: "twitter:image", content: "https://project--82797ab2-2006-4912-97de-e081757bf83b.lovable.app/og-image.png" },
+      { name: "twitter:image", content: OG_IMAGE },
     ],
-    links: [{ rel: "canonical", href: "/experience" }],
+    links: [{ rel: "canonical", href: absoluteUrl("/experience") }],
   }),
   loader: ({ context }) => context.queryClient.ensureQueryData(experienceQuery),
   component: ExperiencePage,
@@ -270,3 +271,4 @@ function ExperienceCard({
     </motion.div>
   );
 }
+
