@@ -75,7 +75,7 @@
   --secondary: oklch(0.96 0.01 250);
   --secondary-foreground: oklch(0.2 0.04 265);
   --muted: oklch(0.96 0.01 250);
-  --muted-foreground: oklch(0.5 0.03 257);
+  --muted-foreground: oklch(0.42 0.035 257);
   --accent: oklch(0.7 0.2 290);
   --accent-foreground: oklch(0.99 0 0);
   --destructive: oklch(0.6 0.24 27);
@@ -87,8 +87,8 @@
   --neon-purple: #8B5CF6;
   --neon-cyan: #22D3EE;
   --gradient-primary: linear-gradient(135deg, #38BDF8, #8B5CF6);
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(56, 189, 248, 0.25);
+  --glass-bg: rgba(255, 255, 255, 0.86);
+  --glass-border: rgba(14, 165, 233, 0.28);
   --bg-radial: radial-gradient(circle at top left, rgba(37,99,235,0.12), transparent 35%), radial-gradient(circle at top right, rgba(124,58,237,0.12), transparent 35%), linear-gradient(135deg, #F8FAFC, #FFFFFF);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -205,7 +205,15 @@
   .glass-card {
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.94);
+    border-color: rgba(14, 165, 233, 0.28);
+    box-shadow: 0 14px 36px -22px rgba(15, 23, 42, 0.35);
+  }
+
+  .dark .glass-card {
     background: rgba(15, 23, 42, 0.85);
+    border-color: rgba(56, 189, 248, 0.25);
+    box-shadow: none;
   }
 }
 
@@ -414,13 +422,14 @@
   animation: nav-drop 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 .navbar-pill--scrolled {
-  background: rgba(15, 23, 42, 0.85); /* slightly darker/more opaque when scrolled */
-  border-color: rgba(56, 189, 248, 0.6);
+  background: rgba(255, 255, 255, 0.94); /* slightly more opaque when scrolled */
+  border-color: rgba(14, 165, 233, 0.42);
   animation: nav-glow 4s ease-in-out infinite alternate;
 }
 
 .dark .navbar-pill--scrolled {
   background: rgba(2, 6, 23, 0.85);
+  border-color: rgba(56, 189, 248, 0.6);
 }
 
 /* Logo styling */
@@ -471,21 +480,22 @@
 }
 .navbar-link:hover {
   color: var(--color-foreground);
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 8px rgba(56, 189, 248, 0.22);
 }
 .navbar-link:hover::before {
   opacity: 1;
 }
 .navbar-link[data-status="active"] {
   color: var(--color-foreground);
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 0 15px rgba(255, 255, 255, 0.1);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  background: rgba(14, 165, 233, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(14, 165, 233, 0.18), 0 0 15px rgba(14, 165, 233, 0.12);
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.22);
 }
 .dark .navbar-link:hover,
 .dark .navbar-link[data-status="active"] {
   background: rgba(255, 255, 255, 0.05);
   box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15), 0 0 20px rgba(56, 189, 248, 0.2);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Contact Button */
@@ -519,7 +529,7 @@
   transition: all 0.2s ease;
 }
 .navbar-theme-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(14, 165, 233, 0.12);
 }
 .dark .navbar-theme-btn:hover {
   background: rgba(255, 255, 255, 0.1);
@@ -542,7 +552,7 @@
   transition: background 0.2s ease;
 }
 .mobile-nav-link:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(14, 165, 233, 0.12);
 }
 .dark .mobile-nav-link:hover {
   background: rgba(255, 255, 255, 0.05);
