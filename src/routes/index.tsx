@@ -1,4 +1,4 @@
-﻿import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion, type Variants } from "framer-motion";
 import {
   Github, Linkedin, Mail, Twitter, Instagram, Download, ArrowRight,
@@ -113,7 +113,9 @@ function Index() {
           </h1>
 
           <h2 className="mt-1 sm:text-2xl md:text-3xl lg:text-[1.9rem] font-bold leading-[1.2] text-gradient text-lg">
-            Completed the Bachelor of Engineering (Hons) in Software Engineering
+            <span className="font-semibold text-foreground">
+              Completed the Bachelor of Engineering (Hons) in Software Engineering with First Class Honours
+            </span>
           </h2>
 
           {/* Premium badge */}
@@ -148,7 +150,7 @@ function Index() {
             <Link to="/contact" className="glass-card inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 text-sm font-semibold hover:scale-105 transition-transform">
               <MessageSquare size={16} /> Contact Me
             </Link>
-            <a href="/Thanus-Theiventhiram-CV.pdf" download="Thanus-Theiventhiram-CV.pdf" className="glass-card inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 text-sm font-semibold hover:scale-105 transition-transform">
+            <a href="/Thanus-Theiventhiram-CV.pdf?v=2" download="Thanus-Theiventhiram-CV.pdf" className="glass-card inline-flex items-center justify-center gap-2 px-4 sm:px-5 py-3 text-sm font-semibold hover:scale-105 transition-transform">
               <Download size={16} /> Download CV
             </a>
           </div>

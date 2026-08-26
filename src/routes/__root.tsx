@@ -1,4 +1,4 @@
-﻿import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import {
   Outlet,
   Link,
@@ -140,7 +140,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: "Thanus Theiventhiram",
           alternateName: "Theiventhiram Thanus",
           jobTitle: "Full Stack Developer, UI/UX Designer & Software Engineer",
-          description: "Completed the Bachelor of Engineering (Hons) in Software Engineering, AarasTech Co-Founder, Full Stack Developer, UI/UX Designer, WordPress Developer, IoT Developer and Game Developer from Jaffna, Sri Lanka.",
+          description: "Completed the Bachelor of Engineering (Hons) in Software Engineering with First Class Honours, AarasTech Co-Founder, Full Stack Developer, UI/UX Designer, WordPress Developer, IoT Developer and Game Developer from Jaffna, Sri Lanka.",
           url: SITE_URL,
           image: OG_IMAGE,
           email: "mailto:thanustheiventhiram@gmail.com",
